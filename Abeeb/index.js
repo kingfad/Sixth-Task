@@ -12,8 +12,10 @@ const xhr = new XMLHttpRequest();
 
 xhr.onreadystatechange = () => {
   if (xhr.readyState === 4) {
+    console.log("Request is completed and ready");
     // If request was found (OK)
     if (xhr.status === 200) {
+      console.log("Request is OK");
       console.log(xhr.responseText);
     }
     // If request was not found
