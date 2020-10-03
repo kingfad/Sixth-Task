@@ -1,8 +1,10 @@
 const fs = require("fs");
 
+// Import the json file synchronously
 const books = JSON.parse(fs.readFileSync("data.json", "utf-8"));
 
-exports.getAllBooks = async (req, res, next) => {
+// Get all books
+exports.getAllBooks = async (req, res) => {
   res.status(200).json({
     status: "success",
     results: books.length,
@@ -11,7 +13,9 @@ exports.getAllBooks = async (req, res, next) => {
     },
   });
 };
-exports.getBook = async (req, res, next) => {
+
+// Get single book with id
+exports.getBook = async (req, res) => {
   const id = req.params.id * 1;
   const book = await books.find((el) => el.id === id);
   if (!book) {
@@ -27,7 +31,9 @@ exports.getBook = async (req, res, next) => {
     },
   });
 };
-exports.createBook = async (req, res, next) => {
+
+// Create new book
+exports.createBook = async (req, res) => {
   // Generate a new ID based on the last ID
   const newId = books[books.length - 1].id + 1;
   // Get and set (assign and copy) new properties
@@ -35,9 +41,8 @@ exports.createBook = async (req, res, next) => {
   //   Add new book object to the books API
   books.push(newBook);
 
-  //   Over-write the existing file with the newly created object
-  fs.writeFile("data.json", JSON.stringify(books), (err) => {
-    //   json response
+  //  Over-write the existing file with the newly created object
+  fs.writeFile("data.json", JSON.stringify(books), () => {
     res.status(201).json({
       status: "success",
       message: "New book created",
@@ -47,7 +52,9 @@ exports.createBook = async (req, res, next) => {
     });
   });
 };
-exports.updateBook = async (req, res, next) => {
+
+// Update single book
+exports.updateBook = async (req, res) => {
   const book = await books.find((el) => el.id === req.params.id * 1);
 
   if (!book) {
@@ -57,6 +64,8 @@ exports.updateBook = async (req, res, next) => {
     });
   }
 
+  const { title, publisher, year } = req.body;
+
   let updatedBook = {
     id: book.id,
     title: req.body.title, // set new value for the title
@@ -64,13 +73,21 @@ exports.updateBook = async (req, res, next) => {
     year: req.body.year, // set new value for the year
   };
 
+  if (!title || !publisher || !year) {
+    return res.status(400).json({
+      status: "fail",
+      message: "Please provide fields",
+    });
+  }
+
   // find index of book object from array of data
   let bookIndex = books.indexOf(book);
 
   // Replace the index of book object from the array
   books.splice(bookIndex, 1, updatedBook);
 
-  fs.writeFile("data.json", JSON.stringify(books), (err) => {
+  // Over-write the file and save
+  fs.writeFile("data.json", JSON.stringify(books), () => {
     res.status(200).json({
       status: "success",
       message: "Book updated",
@@ -78,7 +95,9 @@ exports.updateBook = async (req, res, next) => {
     });
   });
 };
-exports.deleteBook = async (req, res, next) => {
+
+// Delete book
+exports.deleteBook = async (req, res) => {
   //   console.log(books);
   const book = await books.find((el) => {
     return el.id === req.params.id * 1;
@@ -96,7 +115,8 @@ exports.deleteBook = async (req, res, next) => {
   // Remove the index of book object from the array
   books.splice(bookIndex, 1);
 
-  fs.writeFile("data.json", JSON.stringify(books), (err) => {
+  // Over-write the file and save
+  fs.writeFile("data.json", JSON.stringify(books), () => {
     res.status(200).json({
       status: "success",
       message: "Book deleted",

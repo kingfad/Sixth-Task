@@ -14,10 +14,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// route
+// route middleware
 app.use("/api/v1/books", bookRouter);
 
-// Error
+// Global middleware error
 app.all("*", (req, res, next) => {
   next(new Error(`Could not get ${req.originalUrl} on the server!`));
 });

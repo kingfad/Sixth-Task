@@ -1,3 +1,4 @@
+// Require modules
 const express = require("express");
 const bookController = require("../controllers/bookController");
 
@@ -16,4 +17,5 @@ router
   .patch(bookController.updateBook)
   .delete(bookController.deleteBook);
 
+// Export module
 module.exports = router;
