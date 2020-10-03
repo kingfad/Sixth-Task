@@ -1,0 +1,31 @@
+{"books":
+  [
+    {
+      "id":"001",
+      "title":"Lord of the Rings",
+      "author":"J.R. Tolkien",
+      "editions":["classic", "revised"]
+    },
+    { "id":"002",
+      "title":"The Hobbit",
+      "author":"J.R. Tolkien",
+      "editions":["origina", "revised"]
+    },
+    { "id":"003",
+      "title":"Children of Hurin",
+      "author":"J.R. Tolkien",
+      "editions":["classic", "revised"]
+    },
+    { "id":"004",
+      "title":"The fall of Gondolin",
+      "author":"J.R. Tolkien",
+      "editions":["first", "revised"]
+    },
+    { "id":"005",
+      "title":"The silmarillion",
+      "author":"J.R. Tolkien",
+      "editions":["classic", "second"]
+    }
+  ]
+  
+  }
