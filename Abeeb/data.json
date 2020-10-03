@@ -1,41 +1,20 @@
 [
   {
     "id": 0,
-    "firstName": "Abeeb",
-    "lastName": "Ayinla",
-    "country": "Nigeria",
-    "originState": "Kwara",
-    "residentialState": "Lagos",
-    "profession": "Backend Web Developer",
-    "birthYear": 1996,
-    "kids": "None",
-    "school": "Yabatech",
-    "religion": "Islamic"
+    "title": "Intoduction to Computer Programming",
+    "publisher": "Bill Gate",
+    "year": "2010"
   },
   {
     "id": 1,
-    "firstName": "Temitope",
-    "lastName": "Adeoti",
-    "country": "Nigeria",
-    "originState": "Kwara",
-    "residentialState": "Ogun",
-    "profession": "Software Engineer",
-    "birthYear": 1990,
-    "kids": 2,
-    "school": "Unilag",
-    "religion": "Christianity"
+    "title": "Data Structure and Algorithm",
+    "publisher": "Edwin Miller",
+    "year": "2014"
   },
   {
     "id": 2,
-    "firstName": "Busrat",
-    "lastName": "Olaleye",
-    "country": "Nigeria",
-    "originState": "Ogun",
-    "residentialState": "Lagos",
-    "profession": "Quality Analyst",
-    "birthYear": 1995,
-    "kids": "None",
-    "school": "Lasu",
-    "religion": "Islamic"
+    "title": "Linux for All",
+    "publisher": "Linus Torvalds",
+    "year": "2009"
   }
 ]
