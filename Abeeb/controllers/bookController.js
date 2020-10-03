@@ -48,9 +48,8 @@ exports.createBook = async (req, res, next) => {
   });
 };
 exports.updateBook = async (req, res, next) => {
-  const id = req.params.id * 1;
-  const book = await books.find((el) => el.id === id);
-  console.log(book);
+  const book = await books.find((el) => el.id === req.params.id * 1);
+
   if (!book) {
     return res.status(404).json({
       status: "fail",
@@ -58,23 +57,49 @@ exports.updateBook = async (req, res, next) => {
     });
   }
 
-  res.status(200).json({
-    status: "success",
-    message: "Book updated",
-    // book:
+  let updatedBook = {
+    id: book.id,
+    title: req.body.title, // set new value for the title
+    publisher: req.body.publisher, // set new value for the publisher
+    year: req.body.year, // set new value for the year
+  };
+
+  // find index of book object from array of data
+  let bookIndex = books.indexOf(book);
+
+  // Replace the index of book object from the array
+  books.splice(bookIndex, 1, updatedBook);
+
+  fs.writeFile("data.json", JSON.stringify(books), (err) => {
+    res.status(200).json({
+      status: "success",
+      message: "Book updated",
+      book: updatedBook,
+    });
   });
 };
 exports.deleteBook = async (req, res, next) => {
-  const id = req.params.id * 1;
-  const book = await books.find((el) => delete el.id);
+  //   console.log(books);
+  const book = await books.find((el) => {
+    return el.id === req.params.id * 1;
+  });
+  // If not found
   if (!book) {
     return res.status(404).json({
       status: "fail",
       message: "No book found with that ID",
     });
   }
-  res.status(200).json({
-    status: "success",
-    message: "Book deleted",
+  // find index of book object from array of data
+  const bookIndex = books.indexOf(book);
+
+  // Remove the index of book object from the array
+  books.splice(bookIndex, 1);
+
+  fs.writeFile("data.json", JSON.stringify(books), (err) => {
+    res.status(200).json({
+      status: "success",
+      message: "Book deleted",
+    });
   });
 };
