@@ -1,0 +1,41 @@
+[
+  {
+    "id": 0,
+    "firstName": "Abeeb",
+    "lastName": "Ayinla",
+    "country": "Nigeria",
+    "originState": "Kwara",
+    "residentialState": "Lagos",
+    "profession": "Backend Web Developer",
+    "birthYear": 1996,
+    "kids": "None",
+    "school": "Yabatech",
+    "religion": "Islamic"
+  },
+  {
+    "id": 1,
+    "firstName": "Temitope",
+    "lastName": "Adeoti",
+    "country": "Nigeria",
+    "originState": "Kwara",
+    "residentialState": "Ogun",
+    "profession": "Software Engineer",
+    "birthYear": 1990,
+    "kids": 2,
+    "school": "Unilag",
+    "religion": "Christianity"
+  },
+  {
+    "id": 2,
+    "firstName": "Busrat",
+    "lastName": "Olaleye",
+    "country": "Nigeria",
+    "originState": "Ogun",
+    "residentialState": "Lagos",
+    "profession": "Quality Analyst",
+    "birthYear": 1995,
+    "kids": "None",
+    "school": "Lasu",
+    "religion": "Islamic"
+  }
+]
