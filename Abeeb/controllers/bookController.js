@@ -55,8 +55,10 @@ exports.createBook = async (req, res) => {
 
 // Update single book
 exports.updateBook = async (req, res) => {
+  // Get book object ID
   const book = await books.find((el) => el.id === req.params.id * 1);
 
+  // If no book object ID
   if (!book) {
     return res.status(404).json({
       status: "fail",
@@ -64,6 +66,7 @@ exports.updateBook = async (req, res) => {
     });
   }
 
+  // Get the field value
   const { title, publisher, year } = req.body;
 
   let updatedBook = {
@@ -73,6 +76,7 @@ exports.updateBook = async (req, res) => {
     year: req.body.year, // set new value for the year
   };
 
+  // If none of the field set
   if (!title || !publisher || !year) {
     return res.status(400).json({
       status: "fail",
