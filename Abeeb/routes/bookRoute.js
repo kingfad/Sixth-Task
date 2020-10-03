@@ -6,8 +6,8 @@ const router = express.Router();
 // Read or get book(s)
 router
   .route("/")
-  .get(bookController.getAllBooks)
-  .post(bookController.createBook);
+  .post(bookController.createBook)
+  .get(bookController.getAllBooks);
 
 // Read with id, update and delete
 router

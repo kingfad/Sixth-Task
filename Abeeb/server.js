@@ -1,5 +1,4 @@
 // Require modules
-const fs = require("fs");
 const express = require("express");
 const morgan = require("morgan");
 const bookRouter = require("./routes/bookRoute");
