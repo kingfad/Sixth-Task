@@ -1,0 +1,47 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "isbn": "1933988673",
+      "title": "Harry Porter",
+      "author": "J K Rowling",
+      "year": 1995
+    },
+
+    {
+      "id": 2,
+      "isbn": "1933988579",
+      "title": "Blacklist",
+      "author": "Raymond Reedington",
+      "year": 2015
+    },
+    {
+      "id": 3,
+      "isbn": "1933989840",
+      "title": "Prison Break",
+      "author": "Scofield Joe",
+      "year": 2010
+    },
+    {
+      "id": 4,
+      "isbn": "1933986623",
+      "title": "Olympus has Fallen",
+      "author": "Gerald Butler",
+      "year": 2018
+    },
+    {
+      "id": 5,
+      "isbn": "2030988673",
+      "title": "Serveless JS",
+      "author": "King in the North",
+      "year": 2019
+    },
+    {
+      "id": 6,
+      "isbn": "1656988677",
+      "title": "Winter Has Come",
+      "author": "White Walker",
+      "year": 2020
+    }
+  ]
+}
